@@ -21,11 +21,11 @@ class SuraTitle extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           title,
-          style: const TextStyle(
-            fontSize: 28,
-          ),
-        ),
+          style:Theme.of(context).textTheme.headline4,
+
       ),
+        ),
+
     );
   }
 }

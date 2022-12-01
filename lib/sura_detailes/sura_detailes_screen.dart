@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/providers/settings_provider.dart';
 import 'package:islami_app/sura_detailes/sura_detailes_args.dart';
 import 'package:islami_app/sura_detailes/verse_widget.dart';
 import 'package:islami_app/sura_detailes/sura_detailes_args.dart';
 import 'package:islami_app/sura_detailes/verse_widget.dart';
+import 'package:provider/provider.dart';
 
 class SuraScreenDetailes extends StatefulWidget {
   static const String routeName = 'Sura-Detailes';
@@ -20,10 +22,11 @@ class _SuraScreenDetailesState extends State<SuraScreenDetailes> {
     SuraDetailesScreenArgs args =
     ModalRoute.of(context)?.settings.arguments as SuraDetailesScreenArgs;
     if (verses.isEmpty) readFile(args.index + 1);
+    var settingsProvider=Provider.of<SettingsProvider>(context);
     return Container(
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/main_background.png'),
+                image: AssetImage(settingsProvider.getMainBackgroundImage()),
                 fit: BoxFit.fill)),
         child: Scaffold(
             appBar: AppBar(
@@ -45,7 +48,7 @@ class _SuraScreenDetailesState extends State<SuraScreenDetailes> {
                 itemCount: verses.length,
                 separatorBuilder: (_, __) {
                   return Container(
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).accentColor,
                     height: 1,
                     width: double.infinity,
                     margin: const EdgeInsets.symmetric(horizontal: 64),

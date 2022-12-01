@@ -5,6 +5,9 @@ import 'package:islami_app/home/radio/Radio_Tab.dart';
 import 'package:islami_app/home/sebha/Sebha_Tab.dart';
 import 'package:islami_app/home/hadeth/Hadeth_Tab.dart';
 import 'package:islami_app/home/radio/Radio_Tab.dart';
+import 'package:islami_app/home/settings/settings_tab.dart';
+import 'package:islami_app/providers/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -19,12 +22,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var settingsProvider=Provider.of<SettingsProvider>(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
           image: DecorationImage(
-        image: AssetImage('assets/images/main_background.png'),
-        fit: BoxFit.fill,
-      )),
+            image :AssetImage(settingsProvider.getMainBackgroundImage()
+
+          ),
+        fit: BoxFit.fill)),
+
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -58,6 +64,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: const ImageIcon(
                     AssetImage('assets/images/2.0X/icon_sebha.png')),
                 label: 'Sebha'),
+            BottomNavigationBarItem(
+                backgroundColor: Theme.of(context).primaryColor,
+                icon: Icon(Icons.settings),
+                label: 'Settings'),
           ],
         ),
         body: Tabs[selectedIndex],
@@ -65,5 +75,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> Tabs = [QuranTab(),HadethTab(),RadioTab(),  SebhaTab()];
+  List<Widget> Tabs = [QuranTab(),HadethTab(),RadioTab(),  SebhaTab(),SettingsTab()];
 }

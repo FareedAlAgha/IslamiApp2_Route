@@ -30,7 +30,7 @@ class _HadethTabState extends State<HadethTab> {
               },    itemCount: allHadethList.length,
                 separatorBuilder: (_, index) {
                   return Container(
-                    color: Theme.of(context).primaryColor,
+                    color: Theme.of(context).accentColor,
                     width: double.infinity,
                     height: 1,
                     margin: EdgeInsets.symmetric(horizontal: 64),
@@ -47,16 +47,16 @@ class _HadethTabState extends State<HadethTab> {
 
   void loadHadethFile() async {
     List<Hadeth>HadethList=[];
-    String contect = await rootBundle.loadString('assets/files/ahadeth .txt');
+    String contect = await rootBundle.loadString('assets/ahadeth.txt');
     List<String>allHadethContect=contect.split('#');
-    for (int i=0; i<allHadethContect.length;i++){
+    for (int i=0; i<allHadethContect.length;i++) {
       String SingleHadeth = allHadethContect[i].trim();
-      print(SingleHadeth);
 
-      int indexOFFirstLine=SingleHadeth.indexOf('\n');
-      String title = SingleHadeth.substring(0,indexOFFirstLine);
-      String contect=SingleHadeth.substring(indexOFFirstLine+1);
-      Hadeth h = Hadeth(title,contect);
+      int indexOFFirstLine = SingleHadeth.indexOf('\n');
+
+      String title = SingleHadeth.substring(0, indexOFFirstLine);
+      String contect = SingleHadeth.substring(indexOFFirstLine + 1);
+      Hadeth h = Hadeth(title, contect);
       HadethList.add(h);
 
       //List<String>SingleHadethLine=SingleHadeth.split('\n');
@@ -65,12 +65,11 @@ class _HadethTabState extends State<HadethTab> {
       //String contect = SingleHadethLine.join('\n');
 
 
+      allHadethList = HadethList;
+      setState(() {
 
+      });
     }
-    allHadethList=HadethList;
-    setState(() {
-
-    });
 
 
   }

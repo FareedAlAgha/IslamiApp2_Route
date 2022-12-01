@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/home/quran/sura_title.dart';
+import 'package:islami_app/My_Theme.dart';
+import 'package:islami_app/sura_detailes/sura_detailes_args.dart';
+import 'package:islami_app/sura_detailes/sura_detailes_screen.dart';
+import 'package:flutter/src/material/theme.dart';
 
 class QuranTab extends StatelessWidget {
+  String t = 'Sura Name';
   List<String> suraName = [
     "الفاتحة",
     "البقرة",
@@ -137,7 +142,8 @@ class QuranTab extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: Text(
               'Sura Name',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 28,color: Colors.white ),
+
             ),
           ),
           Container(
@@ -153,7 +159,7 @@ class QuranTab extends StatelessWidget {
               itemCount: suraName.length,
               separatorBuilder: (_, index) {
                 return Container(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).accentColor,
                   width: double.infinity,
                   height: 1,
                   margin: EdgeInsets.symmetric(horizontal: 64),
