@@ -69,6 +69,7 @@ flutter:
     - assets/files/
     - assets/images/2.0X/
     - assets/images/3.0X/
+    - assets/images/seb/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

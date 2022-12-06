@@ -138,11 +138,11 @@ class QuranTab extends StatelessWidget {
             color: Theme.of(context).primaryColor,
             height: 2,
           ),
-          const Padding(
+           Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
               'Sura Name',
-              style: TextStyle(fontSize: 28,color: Colors.white ),
+              style: Theme.of(context).textTheme.headline4,
 
             ),
           ),

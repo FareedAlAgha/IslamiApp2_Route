@@ -14,6 +14,7 @@ class MyApplection extends StatelessWidget {
       theme: MyTheme.lightmode,
       darkTheme: MyTheme.DarkMode,
       themeMode: settingsProvider.currentTheme,
+      debugShowCheckedModeBanner: false,
       routes: {
         HomeScreen.routeName: (_) => HomeScreen(),
         SuraScreenDetailes.routeName: (_) => SuraScreenDetailes(),

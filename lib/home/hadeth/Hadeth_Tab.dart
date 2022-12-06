@@ -58,6 +58,7 @@ class _HadethTabState extends State<HadethTab> {
       String contect = SingleHadeth.substring(indexOFFirstLine + 1);
       Hadeth h = Hadeth(title, contect);
       HadethList.add(h);
+        
 
       //List<String>SingleHadethLine=SingleHadeth.split('\n');
       //String title = SingleHadethLine[0];
