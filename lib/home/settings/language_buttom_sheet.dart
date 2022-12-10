@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_app/providers/settings_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-class ThemeButtomSheet  extends StatefulWidget {
+
+class LanguageButtomSheet  extends StatefulWidget {
 
   @override
-  State<ThemeButtomSheet> createState() => _ThemeButtomSheetState();
+  State<LanguageButtomSheet> createState() => _LanguageButtomSheetState();
 }
 
-class _ThemeButtomSheetState extends State<ThemeButtomSheet> {
+class _LanguageButtomSheetState extends State<LanguageButtomSheet> {
   @override
   Widget build(BuildContext context) {
     var settingsProiver = Provider.of<SettingsProvider>(context);
@@ -21,23 +21,27 @@ class _ThemeButtomSheetState extends State<ThemeButtomSheet> {
 
           InkWell(
             onTap: (){
-              settingsProiver.changeTheme(ThemeMode.light);
+                settingsProiver.changeLocal('en');
+
             },
               child:
-              settingsProiver.isDarkMode()?
-              getUnSelectedItem(AppLocalizations.of(context)!.light):
-              getSelectedItem(AppLocalizations.of(context)!.light)
+                  settingsProiver.currentLan=='en'?
+                getSelectedItem('English') : getUnSelectedItem('English')
+
+
           ),
 
           SizedBox(height: 18,),
           InkWell(
             onTap: (){
-              settingsProiver.changeTheme(ThemeMode.dark);
+              settingsProiver.changeLocal('ar');
+
             },
               child:
-              settingsProiver.isDarkMode()?
-              getSelectedItem(AppLocalizations.of(context)!.dark):
-              getUnSelectedItem(AppLocalizations.of(context)!.dark)
+                  settingsProiver.currentLan==('ar')?
+                 getSelectedItem('العربية'): getUnSelectedItem('العربية')
+
+
           ),
 
 
